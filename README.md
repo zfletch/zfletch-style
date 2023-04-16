@@ -1,6 +1,7 @@
-# gnar-style
+# zfletch-style
 
-Gnar shared style configurations.
+Shared style configurations.
+Forked from the (now deprecated) [gnar-style](https://github.com/TheGnarCo/gnar-style).
 
 ## Installation
 
@@ -8,33 +9,36 @@ Add this line to your application's Gemfile:
 
 ```ruby
 group :development, :test do
-  gem 'gnar-style'
+  gem 'zfletch-style'
 end
 ```
 
 And then execute:
 
-    $ bundle
+`bundle`
 
 Or install it yourself as:
 
-    $ gem install gnar-style
+`gem install zfletch-style`
+
+(See project at [rubygems.org](https://rubygems.org/gems/zfletch-style))
 
 ## Usage
 
-This gem includes rubocop, and it's not necessary to separately include rubocop directly in your application's dependencies.
+This Gem includes rubocop, and it's not necessary to separately include rubocop directly in your
+application's dependencies.
 
-### Inheriting from the gem
+### Inheriting from the Gem
 
 Create a `.rubocop.yml` with the following configuration:
 
 ```yaml
 inherit_gem:
-  gnar-style:
+  zfletch-style:
     # Choose from one of these three
-    - "rubocop/rubocop.yml" # if the pure ruby style is all that's needed
-    - "rubocop/rubocop_gem.yml" # if the application is a gem, already inherits from the default ruby style
-    - "rubocop/rubocop_rails.yml" # if the application is a rails project, already inherits from the default ruby style
+    - "rubocop/rubocop.yml" # if the pure Ruby style is all that's needed
+    - "rubocop/rubocop_gem.yml" # if the application is a Gem
+    - "rubocop/rubocop_rails.yml" # if the application is a Rails project
 ```
 
 To check your application against these style configurations:
@@ -43,64 +47,14 @@ To check your application against these style configurations:
 $ bundle exec rubocop
 ```
 
-You [must](https://github.com/bbatsov/rubocop/blob/master/manual/configuration.md#inheriting-configuration-from-a-dependency-gem) use `bundle exec` when using the `inherit_gem` directive.
-
-### Inheriting from local copies of gem files
-
-Use this approach should you not be able to, or not want to, use the `inherit_gem` directive. This may be because the requirement to use `bundle exec rubocop` to find the dependency's runtime installation path is not an option for you.
-
-There is a command to copy the templates locally:
-
-```bash
-$ bundle exec gnar-style copy_local
-```
-
-The `copy_local` command accepts a `--format` option to specify what kind of project you have, and therefore, what files you need.
-
-Acceptable options for the format are:
-* `ruby` (the default)
-* `gem`
-* `rails`
-
-You can use this option as follows:
-```bash
-$ bundle exec gnar-style copy_local --format=gem
-```
-
-Create a `.rubocop.yml` with the following configuration:
-
-```yaml
-inherit_from:
-  # Choose from one of these three
-  - "gnar_style/rubocop.yml"  # if the pure ruby style is all that's needed
-  - "gnar_style/rubocop_gem.yml" # if the application is a gem, already inherits from the default ruby style
-  - "gnar_style/rubocop_rails.yml" # if the application is a rails project, already inherits from the default ruby style
-```
-
-To check your application against these style configurations:
-
-```bash
-$ rubocop
-```
-
-Upon updating this gem for any future updates, you'll need to re-run the `copy_local` command to store the updates locally.
-
 ## Overriding Styles
 
-Note that if you add in a local style exception in your own application after inheriting from gnar-style, that will completely override gnar-style's defaults. This is particularly important if you're not looking to modify the style at all, but instead are hoping to add to, for example, the list of files excluded.
-
-Consider the following:
-```yaml
-# In gnar-style/default.yml
-Metrics/BlockLength:
-  Exclude:
-    - "spec/**/*"
-```
+Example:
 
 ```yaml
 # In your app's .rubocop.yml
 inherit_gem:
-  gnar-style:
+  zfletch-style:
     - "rubocop/rubocop.yml"
 
 Metrics/BlockLength:
@@ -108,35 +62,5 @@ Metrics/BlockLength:
     - specific_file.rb
 ```
 
-In this example, all files in the spec directory will no longer be excluded from the `Metrics/BlockLength` cop. The excluded array is overridden, and not inherited. This is discussed in [this rubocop issue](https://github.com/bbatsov/rubocop/issues/3208), though the suggestion to have a `super` keyword does not seem to have been implemented.
-
-If you want to add to the list, you'll instead need to add in the prior array elements into your application's `.rubocop.yml` by referencing the initial list from gnar-style.
-
-## Different Styles
-
-gnar-style provides defaults for three different scenarios. You can specify which configuration to use in your `rubocop.yml`. See the [Usage](#usage) section for details.
-
-* `rubocop.yml` - Base styling configurations.
-* `rubocop_rails.yml` - Styling for use in a rails project.
-* `rubocop_gem.yml` - Styling for use in a gem.
-
-## Philosophy
-
-Our adherence to our style guide is based on the general case, and not to ensure there are no exceptions. Our philosophy is to use the guide precisely in that way - as a guide. It's not meant as a command that must be taken, but a suggestion to be considered. To the extent that deviations make sense sometimes - great, deviate. However, having rubocop start the discussion and if nothing else, having the author justify to themselves why this deviation is warranted, can be valuable.  
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/TheGnarCo/gnar-style. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
-## License
-
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
-## About The Gnar Company
-
-![The Gnar Company](https://avatars0.githubusercontent.com/u/17011419?s=100&v=4)
-
-The Gnar Company is a Boston-based development company that builds robust
-web and mobile apps designed for the long haul.
-
-For more information see [our website](https://www.thegnar.co/).
+Note that if you add in a local style exception in your own application after inheriting from
+zfletch-style, that will completely override zfletch-style's defaults.

@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in gnar-style.gemspec
 gemspec
+
+gem 'rake'
+gem 'rubocop-rake', require: false
