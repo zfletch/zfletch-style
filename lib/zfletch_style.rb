@@ -1,4 +1,4 @@
-require_relative "zfletch_style/version"
+require_relative 'zfletch_style/version'
 
 module ZfletchStyle
 end

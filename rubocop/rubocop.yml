@@ -24,15 +24,24 @@ Layout/LineLength:
   Max: 100
   Severity: refactor
 
+Metrics/MethodLength:
+  Max: 20
+
 Metrics/ModuleLength:
   Exclude:
     - 'spec/**/*'
+
+Metrics/ParameterLists:
+  CountKeywordArgs: false
 
 Style/ConditionalAssignment:
   EnforcedStyle: assign_inside_condition
   IncludeTernaryExpressions: false
 
 Style/Documentation:
+  Enabled: false
+
+Style/DoubleNegation:
   Enabled: false
 
 Style/EmptyMethod:
@@ -50,10 +59,11 @@ Style/IfUnlessModifier:
 Style/ParenthesesAroundCondition:
   Enabled: false
 
+Style/AsciiComments:
+  Enabled: false
+
 Style/StringLiterals:
-  EnforcedStyle: double_quotes
-  Exclude:
-    - 'Gemfile'
+  EnforcedStyle: single_quotes
 
 Style/SymbolArray:
   EnforcedStyle: brackets

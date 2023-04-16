@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-require "bundler/setup"
-require "zfletch_style"
+require 'bundler/setup'
+require 'zfletch_style'
 
-require "irb"
+require 'irb'
 IRB.start(__FILE__)

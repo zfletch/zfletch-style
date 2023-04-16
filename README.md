@@ -36,9 +36,9 @@ Create a `.rubocop.yml` with the following configuration:
 inherit_gem:
   zfletch-style:
     # Choose from one of these three
-    - "rubocop/rubocop.yml" # if the pure Ruby style is all that's needed
-    - "rubocop/rubocop_gem.yml" # if the application is a Gem
-    - "rubocop/rubocop_rails.yml" # if the application is a Rails project
+    - rubocop/rubocop.yml # if the pure Ruby style is all that's needed
+    - rubocop/rubocop_gem.yml # if the application is a Gem
+    - rubocop/rubocop_rails.yml # if the application is a Rails project
 ```
 
 To check your application against these style configurations:
