@@ -5,7 +5,7 @@ Forked from the (now deprecated) [gnar-style](https://github.com/TheGnarCo/gnar-
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add this line to your application's `Gemfile`:
 
 ```ruby
 group :development, :test do
@@ -25,7 +25,7 @@ Or install it yourself as:
 
 ## Usage
 
-This Gem includes rubocop, and it's not necessary to separately include rubocop directly in your
+This Gem includes Rubocop, and it's not necessary to separately include Rubocop directly in your
 application's dependencies.
 
 ### Inheriting from the Gem
